@@ -1,0 +1,228 @@
+/* styles.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Share Tech Mono', monospace;
+  background: #0a0f14;
+  color: #fff;
+  overflow: hidden;
+  height: 100vh;
+  position: relative;
+}
+.foto__foto {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+/* Фон с логотипами 
+.logos {
+  position: absolute;
+  inset: 0;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: top;
+  align-items: top;
+  opacity: 0.08;
+  filter: grayscale(1) brightness(2);
+}*/
+/* Логотипы расположены справа вверху горизонтально */
+.logos {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: flex-start; /* По умолчанию выравниваются слева направо */
+  gap: 10px; /* Расстояние между элементами */
+}
+
+.logos img {
+  width: 40px;
+  margin: 10px;
+  top: 20%;
+  left: 0;
+}
+
+/* Центральный блок */
+.content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 20px;
+  .swinging-and-falling {
+    animation-name: swinging;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes swinging {
+    0% { transform: rotate(-10deg); }
+    50% { transform: rotate(10deg); }
+    100% { transform: rotate(-10deg); }
+}
+
+/* Класс для начала падения */
+.fall-down {
+    animation-name: falling;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes falling {
+    from { top: 0px; opacity: 1; }
+    to   { top: calc(100vh + 100px); opacity: 0; }
+}
+}
+
+/* Glitch-эффект для заголовка */
+.glitch {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 4rem;
+  color: #0ff;
+  position: relative;
+  text-transform: uppercase;
+}
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+}
+.glitch::before {
+  animation: glitchTop 2s infinite linear;
+  clip: rect(0, 900px, 45%, 0);
+  color: #f0f;
+}
+.glitch::after {
+  animation: glitchBot 2s infinite linear;
+  clip: rect(55%, 900px, 100%, 0);
+  color: #ff0;
+}
+
+@keyframes glitchTop {
+  0% { transform: translate(0);}
+  20% { transform: translate(-2px, -2px);}
+  40% { transform: translate(-2px, 2px);}
+  60% { transform: translate(2px, -2px);}
+  80% { transform: translate(2px, 2px);}
+  100% { transform: translate(0);}
+}
+@keyframes glitchBot {
+  0% { transform: translate(0);}
+  20% { transform: translate(2px, 2px);}
+  40% { transform: translate(2px, -2px);}
+  60% { transform: translate(-2px, 2px);}
+  80% { transform: translate(-2px, -2px);}
+  100% { transform: translate(0);}
+}
+
+.role {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #FF4500;
+  text-shadow: 0 0 8px #FF4500;
+}
+.role span {
+  padding: 0 10px;
+  background: rgba(37,219,237,0.8);
+}
+body {
+.custom-btn {
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+}
+
+.btn-4 {
+  background-color: #4dccc6;
+background-image: linear-gradient(315deg, #4dccc6 0%, #96e4df 74%);
+  line-height: 42px;
+  padding: 0;
+  border: none;
+}
+.btn-4:hover{
+  background-color: #89d8d3;
+background-image: linear-gradient(315deg, #89d8d3 0%, #03c8a8 74%);
+}
+.btn-4 span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.btn-4:before,
+.btn-4:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  top: 0;
+   box-shadow:  4px 4px 6px 0 rgba(255,255,255,.9),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.9),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+  transition: all 0.3s ease;
+}
+.btn-4:before {
+  height: 0%;
+  width: .1px;
+}
+.btn-4:after {
+  width: 0%;
+  height: .1px;
+}
+.btn-4:hover:before {
+  height: 100%;
+}
+.btn-4:hover:after {
+  width: 100%;
+}
+.btn-4 span:before,
+.btn-4 span:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  box-shadow:  4px 4px 6px 0 rgba(255,255,255,.9),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.9),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+  transition: all 0.3s ease;
+}
+.btn-4 span:before {
+  width: .1px;
+  height: 0%;
+}
+.btn-4 span:after {
+  width: 0%;
+  height: .1px;
+}
+.btn-4 span:hover:before {
+  height: 100%;
+}
+.btn-4 span:hover:after {
+  width: 100%;
+}
+}
